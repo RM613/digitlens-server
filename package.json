@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/RM613/digitlens-server#readme",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.940.0",
+    "@aws-sdk/s3-request-presigner": "^3.940.0",
     "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
