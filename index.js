@@ -33,19 +33,19 @@ let historyDb = [];
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
   port: parseInt(process.env.SMTP_PORT || '587', 10),
-  secure: process.env.SMTP_SECURE === 'true',
+  secure: process.env.SMTP_SECURE === 'false',
   auth: {
-    user: process.env.EMAIL_USER, // SMTP login from Brevo
-    pass: process.env.EMAIL_PASS, // SMTP key from Brevo
+    user: process.env.SMTP_USER, // SMTP login from Brevo
+    pass: process.env.SMTP_PASS, // SMTP key from Brevo
   },
 });
 
 // Optional: verify transporter on start
 transporter.verify((err) => {
   if (err) {
-    console.error('SMTP transporter verification failed:', err);
+    console.error("SMTP transporter verification failed:", err.message);
   } else {
-    console.log('SMTP transporter ready');
+    console.log("SMTP server ready");
   }
 });
 
